@@ -1,0 +1,9 @@
+flask==2.2.2
+loguru==0.6.0
+requests==2.28.0
+sqlalchemy==2.0.15
+weasyprint==58.0
+flask-sqlalchemy==3.0.0
+flask-weasyprint==1.0.0
+pymysql==1.1.0
+gunicorn==20.1.0

@@ -1,0 +1,45 @@
+{% extends 'template' %}
+
+{% block content %}
+
+<style type="text/css">
+	.form-signin {
+		margin: 0 auto;
+		padding: 15px;
+		max-width: 330px;
+	}
+</style>
+
+<form class="form-signin" role="form" action="{{ url_for('login') }}" method="post">
+	<div class="alert alert-info" role="alert">
+		Para o primeiro acesso considere seu <strong>CPF</strong> como <span class="sublinhado">login</span> e <span class="sublinhado">senha</span>.
+	</div>
+
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-user"></span>
+			</span>
+			<input type="text" class="form-control" name="login" placeholder="Login" autofocus/>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="input-group">
+			<span class="input-group-addon"> 
+				<span class="glyphicon glyphicon-lock"></span>
+			</span>
+			<input type="password" class="form-control" name="passphrase" placeholder="Senha"/>
+		</div>
+	</div>
+
+	<button id="entrar" type="submit" class="btn btn-lg btn-primary btn-block">entrar</button>
+
+	<br>
+
+	<div class="alert alert-info" role="alert">
+		Caso já tenha alterado sua senha pelo sistema <mark><a class="text-danger" href="https://www.fatecourinhos.edu.br/academico" target="_blank">acadêmico</a></mark>, considere seu <strong>CPF</strong> como <span class="sublinhado">login</span> e informe a nova <span class="sublinhado">senha</span>.
+	</div>
+</form>
+
+{% endblock %}

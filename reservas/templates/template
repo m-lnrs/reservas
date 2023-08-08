@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1, maximum-scale = 1">
+
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery/3.3.1/jquery.min.js') }}"></script>
+
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/3.3.2/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/3.3.2/bootstrap-theme.min.css') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/3.3.2/bootstrap.min.js') }}"></script>
+
+	{% block header %} {% endblock %}
+
+	<title>
+		{% block title %}FATEC Ourinhos{% endblock %}
+	</title>
+</head>
+<body>
+	{% if user %}
+		<!-- menu  -->
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="sr-only">MENU</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand link" href="{{ url_for('panel') }}">
+					<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+					Fatec Ourinhos
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a class="link" href="{{ url_for('panel') }}">Home</a>
+					</li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle link" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-user"></span>
+							{{user.person.name}}
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a class="link" href="{{ url_for('logout') }}">
+									<span class="glyphicon glyphicon-off"></span> Sair
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	{% endif %}
+	<div class="container">
+		<br>
+		{% block content %}{% endblock %}
+		<br>
+	</div>
+</body>
+</html>
